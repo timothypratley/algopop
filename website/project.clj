@@ -29,7 +29,7 @@
   :ring {:handler algopop.website.routes/handler
          :uberwar-name "algopop.website.war"}
 
-  :min-lein-version "2.5.0"
+  :min-lein-version "2.0.0"
 
   :uberjar-name "algopop.website.jar"
 
