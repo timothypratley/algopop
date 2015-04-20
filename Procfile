@@ -1,1 +1,1 @@
-web: java $JVM_OPTS -cp target/algopop-website-standalone.jar clojure.main -m algopop.website.main $PORT
+web: java $JVM_OPTS -jar target/algopop-website-standalone.jar $PORT

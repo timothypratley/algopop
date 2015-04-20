@@ -31,7 +31,7 @@
 
   :min-lein-version "2.5.0"
 
-  :uberjar-name "algopop.website.jar"
+  :uberjar-name "algopop-website-standalone.jar"
 
   :main algopop.website.main
 
