@@ -2,7 +2,8 @@
   (:require [algopop.website.communication :as comm]
             [algopop.website.routes :as routes]
             [clojure.tools.logging :as log]
-            [org.httpkit.server :as http-kit]))
+            [org.httpkit.server :as http-kit])
+  (:gen-class))
 
 (defn start-http-kit [ring-handler port]
   (println "Starting http-kit...")
