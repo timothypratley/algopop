@@ -23,7 +23,7 @@
         (start-http-kit (var routes/handler)
                         (or port 0))
         uri (format "http://localhost:%s/" port)]
-    (log/info "Web server is running at `%s`" uri)
+    (log/info "Web server is running at" uri)
     (reset! web-server server-map)))
 
 (defn start! [port]

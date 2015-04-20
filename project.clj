@@ -33,7 +33,7 @@
 
   :uberjar-name "algopop.website.jar"
 
-  :main algopop.website.server
+  :main algopop.website.main
 
   :clean-targets ^{:protect false} ["resources/public/js"]
 
