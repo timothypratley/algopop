@@ -1,4 +1,4 @@
-(ns algopop.website.app.views.services)
+(ns algopop.website.views.services)
 
 (defn services-page []
   [:div
@@ -6,7 +6,7 @@
     [:h2 "Services"]
     [:p "Like our approach? Let's collaborate on your next money maker."]]
    [:div
-    [:h3 "Data ETL and Datamining"]
+    [:h3 "Data ETL and data-mining"]
     [:p "If you have data locked away, we can liberate it.
 Our data scientists are available to extract valuable information from your existing data."]
     [:h3 "Prototyping"]

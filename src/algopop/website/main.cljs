@@ -1,6 +1,5 @@
 (ns algopop.website.app.main
-  (:require [algopop.website.app.communication :as communication]
-            [algopop.website.app.views.header :as header]
+  (:require [algopop.website.app.views.header :as header]
             [algopop.website.app.views.home :as home]
             [algopop.website.app.views.products :as products]
             [algopop.website.app.views.team :as team]
@@ -11,6 +10,7 @@
             [reagent.core :as reagent]
             [reagent.session :as session]
             [secretary.core :as secretary :include-macros true]
+            [goog.dom :as dom]
             [goog.events :as events]
             [goog.history.EventType :as EventType]
             [cljsjs.react :as react])
@@ -67,10 +67,10 @@
     (.setEnabled true)))
 
 ;; -------------------------
-;; Initialize app
+;; Initialize website
 
 (defn mount-root []
-  (reagent/render [current-page] (.getElementById js/document "app")))
+  (reagent/render [current-page] (dom/getElement "website")))
 
 (defn init! []
   (hook-browser-navigation!)

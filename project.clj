@@ -4,36 +4,19 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
-  :dependencies [[org.clojure/clojure "1.6.0"]
-                 [org.clojure/clojurescript "0.0-3196" :scope "provided"]
-                 [org.clojure/tools.logging "0.3.1"]
-                 [timothypratley/patchin "0.3.5"]
-                 [com.taoensso/sente "1.4.1"]
-                 [http-kit "2.1.19"]
-                 [cljsjs/react "0.13.1-0"]
-                 [reagent "0.5.0"]
-                 [reagent-forms "0.5.0"]
-                 [reagent-utils "0.1.4"]
-                 [ring "1.3.2"]
-                 [ring/ring-defaults "0.1.4"]
-                 [prone "0.8.1"]
-                 [compojure "1.3.3"]
-                 [hiccup "1.0.5"]
-                 [environ "1.0.0"]
+  :dependencies [[org.clojure/clojure "1.10.1"]
+                 [org.clojure/clojurescript "1.10.520" :scope "provided"]
+                 [cljsjs/react "16.8.6-0"]
+                 [reagent "0.8.1"]
+                 [reagent-forms "0.5.43"]
+                 [reagent-utils "0.3.3"]
                  [secretary "1.2.3"]]
 
-  :plugins [[lein-cljsbuild "1.0.5"]
-            [lein-environ "1.0.0"]
-            [lein-asset-minifier "0.2.2"]]
-
-  :ring {:handler algopop.website.routes/handler
-         :uberwar-name "algopop.website.war"}
+  :plugins [[lein-cljsbuild "1.1.7"]
+            [lein-environ "1.0.2"]
+            [lein-asset-minifier "0.4.6"]]
 
   :min-lein-version "2.5.0"
-
-  :uberjar-name "algopop-website-standalone.jar"
-
-  :main algopop.website.main
 
   :clean-targets ^{:protect false} ["resources/public/js"]
 
@@ -41,7 +24,7 @@
   {:assets
     {"resources/public/css/site.min.css" "resources/public/css/site.css"}}
 
-  :cljsbuild {:builds {:app {:compiler {:output-to "resources/public/js/app.js"
+  :cljsbuild {:builds {:app {:compiler {:output-to "resources/public/js/website.js"
                                         :output-dir "resources/public/js/out"
                                         :asset-path "js/out"
                                         :optimizations :none
@@ -50,25 +33,21 @@
   :profiles {:dev {:repl-options {:init-ns repl
                                   :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
 
-                   :dependencies [[ring-mock "0.1.5"]
-                                  [ring/ring-devel "1.3.2"]
-                                  [leiningen "2.5.1"]
-                                  [figwheel "0.2.5"]
-                                  [weasel "0.6.0"]
-                                  [com.cemerick/piggieback "0.2.0"]
-                                  [org.clojure/tools.nrepl "0.2.10"]]
+                   :dependencies [[figwheel "0.5.19"]
+                                  [weasel "0.7.0"]
+                                  [com.cemerick/piggieback "0.2.2"]
+                                  [org.clojure/tools.nrepl "0.2.13"]]
 
                    :source-paths ["env/dev/clj" "src"]
-                   :plugins [[lein-figwheel "0.2.5"]]
+                   :plugins [[lein-figwheel "0.5.19"]]
 
                    :figwheel {:http-server-root "public"
                               :server-port 3449
-                              :css-dirs ["resources/public/css"]
-                              :ring-handler algopop.website.routes/handler}
+                              :css-dirs ["resources/public/css"]}
 
                    :env {:dev? true}
 
-                   :cljsbuild {:builds {:app {:source-paths ["env/dev/cljs" "src-cljs"]
+                   :cljsbuild {:builds {:app {:source-paths ["env/dev/cljs" "src"]
                                               :compiler {:main "algopop.website.dev"
                                                          :source-map true}}}}}
 
@@ -78,7 +57,7 @@
                        :omit-source true
                        :cljsbuild {:jar true
                                    :builds {:app
-                                             {:source-paths ["env/prod/cljs" "src-cljs"]
+                                             {:source-paths ["env/prod/cljs" "src"]
                                               :compiler
                                               {:optimizations :advanced
                                                :pretty-print false}}}}}})

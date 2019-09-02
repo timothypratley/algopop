@@ -1,4 +1,4 @@
-(ns algopop.website.app.views.algorithms)
+(ns algopop.website.views.algorithms)
 
 (defn algorithms-page []
   [:div

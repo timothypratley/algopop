@@ -1,4 +1,4 @@
-(ns algopop.website.app.views.header
+(ns algopop.website.views.header
   (:require [reagent.session :as session]))
 
 (defn header []

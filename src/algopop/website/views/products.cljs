@@ -1,4 +1,4 @@
-(ns algopop.website.app.views.products)
+(ns algopop.website.views.products)
 
 (defn products-page []
   [:div

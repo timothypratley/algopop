@@ -1,4 +1,4 @@
-(ns algopop.website.app.views.clients)
+(ns algopop.website.views.clients)
 
 (defn clients-page []
   [:div
